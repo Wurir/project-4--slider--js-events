@@ -32,19 +32,25 @@ const initEvents = function(imagesList, sliderRootElement) {
     // utwórz nasłuchiwanie eventu o nazwie [click], który ma uruchomić event [js-slider-img-next]
     // na elemencie [.js-slider__nav--next]
     const navNext = sliderRootElement.querySelector('.js-slider__nav--next');
-    
+    navNext.addEventListener('click', function(e){
+        fireCustomEvent(e.currentTarget, 'js-slider-img-next')
+    })
 
     // todo:
     // utwórz nasłuchiwanie eventu o nazwie [click], który ma uruchomić event [js-slider-img-prev]
     // na elemencie [.js-slider__nav--prev]
     const navPrev = sliderRootElement.querySelector('.js-slider__nav--prev');
-    
+    navPrev.addEventListener('click', function(e){
+        fireCustomEvent(e.currentTarget, 'js-slider-img-prev')
+    })
 
     // todo:
     // utwórz nasłuchiwanie eventu o nazwie [click], który ma uruchomić event [js-slider-close]
     // tylko wtedy, gdy użytkownik kliknie w [.js-slider__zoom]
     const zoom = sliderRootElement.querySelector('.js-slider__zoom');
-    
+    zoom.addEventListener('click', function(e){
+        fireCustomEvent(e.currentTarget, 'js-slider-close')
+    })    
 }
 
 const fireCustomEvent = function(element, name) {
