@@ -92,6 +92,13 @@ const onImageClick = function(event, sliderRootElement, imagesSelector) {
     const groupElList = parentEl.querySelectorAll('[data-slider-group-name="' + dataSet + '"')
     console.log(groupElList)
     // 5. utworzyć na podstawie elementu [.js-slider__thumbs-item--prototype] zawartość dla [.js-slider__thumbs]
+    const prototypeFigureEl = sliderRootElement.querySelector('.js-slider__thumbs-item--prototype')
+    console.log(prototypeFigureEl)
+
+    const newFigure = prototypeFigureEl.cloneNode(true)
+    console.log(newFigure)
+
+    
     // 6. zaznaczyć przy pomocy klasy [.js-slider__thumbs-image--current], który element jest aktualnie wyświetlany
     
 }
