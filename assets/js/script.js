@@ -86,6 +86,8 @@ const onImageClick = function(event, sliderRootElement, imagesSelector) {
     // 2. wyszukać ściężkę (atrybut [src]) do klikniętego elementu i wstawić do [.js-slider__image]
     const imgEl = figureEl.querySelector('img')
     const src = imgEl.getAttribute('src')
+    const sliderImage = sliderRootElement.querySelector('img')
+    sliderImage.setAttribute('src', src)
     // 3. pobrać nazwę grupy zapisaną w dataset klikniętego elementu
     const dataSet = figureEl.dataset.sliderGroupName
     // 4. wyszukać wszystkie zdjęcia należące do danej grupy, które wykorzystasz do osadzenia w dolnym pasku
