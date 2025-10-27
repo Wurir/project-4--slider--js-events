@@ -81,6 +81,7 @@ const onImageClick = function(event, sliderRootElement, imagesSelector) {
     // todo:  
     // 1. dodać klasę [.js-slider--active], aby pokazać całą sekcję
     const figureEl = event.target
+    console.log(figureEl, 'current')
     sliderRootElement.classList.add('js-slider--active')
     // 2. wyszukać ściężkę (atrybut [src]) do klikniętego elementu i wstawić do [.js-slider__image]
     const imgEl = figureEl.querySelector('img')
@@ -99,11 +100,15 @@ const onImageClick = function(event, sliderRootElement, imagesSelector) {
         console.log(element)
         const img = element.querySelector('img')
         const elementSrc = img.getAttribute('src')
-        console.log(elementSrc, 'src')
+        const imgClassList = img.classList
+        console.log(imgClassList, 'classes')
+        const newFigure = prototypeFigureEl.cloneNode(true)
+        newFigure.classList.remove('js-slider__thumbs-item--prototype')
+        const newFigureImg = newFigure.querySelector('img')
+        newFigureImg.setAttribute('src', elementSrc)
+        thumb.appendChild(newFigure)
+        
     })
-    const newFigure = prototypeFigureEl.cloneNode(true)
-    newFigure.classList.remove('js-slider__thumbs-item--prototype')
-    thumb.appendChild(newFigure)
     console.log(thumb)
     
     // 6. zaznaczyć przy pomocy klasy [.js-slider__thumbs-image--current], który element jest aktualnie wyświetlany
