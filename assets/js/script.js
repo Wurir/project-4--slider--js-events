@@ -92,6 +92,8 @@ const onImageClick = function(event, sliderRootElement, imagesSelector) {
     const groupElList = parentEl.querySelectorAll('[data-slider-group-name="' + dataSet + '"')
     console.log(groupElList)
     // 5. utworzyć na podstawie elementu [.js-slider__thumbs-item--prototype] zawartość dla [.js-slider__thumbs]
+    const thumb = sliderRootElement.querySelector('.js-slider__thumbs')
+    console.log(thumb)
     const prototypeFigureEl = sliderRootElement.querySelector('.js-slider__thumbs-item--prototype')
 
     const newFigure = prototypeFigureEl.cloneNode(true)
