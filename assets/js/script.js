@@ -80,7 +80,9 @@ const initCustomEvents = function(imagesList, sliderRootElement, imagesSelector)
 const onImageClick = function(event, sliderRootElement, imagesSelector) {
     // todo:  
     // 1. dodać klasę [.js-slider--active], aby pokazać całą sekcję
-
+    const target = event.target
+    target.classList.add("js-slider--active")
+    console.log(target)
     // 2. wyszukać ściężkę (atrybut [src]) do klikniętego elementu i wstawić do [.js-slider__image]
 
     // 3. pobrać nazwę grupy zapisaną w dataset klikniętego elementu
