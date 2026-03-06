@@ -93,7 +93,8 @@ const onImageClick = function(event, sliderRootElement, imagesSelector) {
     const figureElDataSet = figureEl.dataset.sliderGroupName
     
     // 4. wyszukać wszystkie zdjęcia należące do danej grupy, które wykorzystasz do osadzenia w dolnym pasku
-
+    const groupElements = document.querySelectorAll('[data-slider-group-name="' +figureElDataSet+ '"]')
+    
     // 5. utworzyć na podstawie elementu [.js-slider__thumbs-item--prototype] zawartość dla [.js-slider__thumbs]
     
     // 6. zaznaczyć przy pomocy klasy [.js-slider__thumbs-image--current], który element jest aktualnie wyświetlany
