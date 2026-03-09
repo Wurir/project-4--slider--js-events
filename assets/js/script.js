@@ -82,7 +82,6 @@ const onImageClick = function(event, sliderRootElement, imagesSelector) {
     // 1. dodać klasę [.js-slider--active], aby pokazać całą sekcję
     const figureEl = event.target
     figureEl.classList.add("js-slider--active")
-    console.log(figureEl)
     // 2. wyszukać ściężkę (atrybut [src]) do klikniętego elementu i wstawić do [.js-slider__image]
     const imgEl = figureEl.querySelector('img')
     const imgSrc = imgEl.getAttribute('src')
@@ -94,8 +93,24 @@ const onImageClick = function(event, sliderRootElement, imagesSelector) {
     
     // 4. wyszukać wszystkie zdjęcia należące do danej grupy, które wykorzystasz do osadzenia w dolnym pasku
     const groupElements = document.querySelectorAll('[data-slider-group-name="' +figureElDataSet+ '"]')
+    console.log(groupElements);
     
     // 5. utworzyć na podstawie elementu [.js-slider__thumbs-item--prototype] zawartość dla [.js-slider__thumbs]
+    const sliderThumbsEl = document.querySelector('.js-slider__thumbs')
+    const sliderPrototypeEl = sliderThumbsEl.querySelector('.js-slider__thumbs-item--prototype')
+
+    groupElements.forEach(element => {
+        const elementImg = element.querySelector('img')
+        const src = elementImg.getAttribute('src')
+        
+        const clonedThumbEl = sliderPrototypeEl.cloneNode(true)
+        clonedThumbEl.classList.remove('js-slider__thumbs-item--prototype')
+        const clonedImgEl = clonedThumbEl.querySelector('.js-slider__thumbs-image')
+        clonedImgEl.setAttribute('src', src)
+        console.log(clonedThumbEl)
+
+        sliderThumbsEl.appendChild(clonedThumbEl)
+    })
     
     // 6. zaznaczyć przy pomocy klasy [.js-slider__thumbs-image--current], który element jest aktualnie wyświetlany
     
