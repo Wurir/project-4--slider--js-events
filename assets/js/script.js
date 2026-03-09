@@ -133,13 +133,10 @@ const onImageNext = function(event) {
     // todo:
     // 1. wyszukać aktualny wyświetlany element przy pomocy [.js-slider__thumbs-image--current]
     const currentEl = document.querySelector('.js-slider__thumbs-image--current')
-    console.log(currentEl, "current");
     
     // 2. znaleźć element następny do wyświetlenie względem drzewa DOM dla [.js-slider__thumbs]
     const parentEl = currentEl.parentElement
-    console.log(parentEl);
     const nextEl = parentEl.nextElementSibling
-    console.log(nextEl);
     
     // 3. sprawdzić czy ten element istnieje - jeśli nie to [.nextElementSibling] zwróci [null]
     // 4. przełączyć klasę [.js-slider__thumbs-image--current] do odpowiedniego elementu
