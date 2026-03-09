@@ -81,7 +81,8 @@ const onImageClick = function(event, sliderRootElement, imagesSelector) {
     // todo:  
     // 1. dodać klasę [.js-slider--active], aby pokazać całą sekcję
     const figureEl = event.target
-    figureEl.classList.add("js-slider--active")
+    const thumbSectionEl = document.querySelector('.js-slider')
+    thumbSectionEl.classList.add("js-slider--active")
     // 2. wyszukać ściężkę (atrybut [src]) do klikniętego elementu i wstawić do [.js-slider__image]
     const imgEl = figureEl.querySelector('img')
     const imgSrc = imgEl.getAttribute('src')
