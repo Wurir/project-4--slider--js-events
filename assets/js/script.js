@@ -193,5 +193,8 @@ const onImagePrev = function(event) {
 const onClose = function(event) {
     // todo:
     // 1. należy usunać klasę [js-slider--active] dla [.js-slider]
+    const sliderEl = document.querySelector('.js-slider')
+    sliderEl.classList.remove('js-slider--active')
+    
     // 2. należy usunać wszystkie dzieci dla [.js-slider__thumbs] pomijając [.js-slider__thumbs-item--prototype]
 }
