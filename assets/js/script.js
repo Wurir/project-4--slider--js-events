@@ -147,7 +147,7 @@ const onImageNext = function(event) {
         const newSrc = nextElImg.src
         sliderEl.src = newSrc
     } else {
-        const firstChildEl = parentEl.parentElement.children[1]
+        const firstChildEl = parentEl.parentElement.querySelector('.js-slider__thumbs-item:not(.js-slider__thumbs-item--prototype)')
         const firstChildImg = firstChildEl.querySelector('img')
         const firstChildImgSrc = firstChildImg.src
         sliderEl.src = firstChildImgSrc
@@ -204,3 +204,5 @@ const onClose = function(event) {
         element.remove()
     })
 }
+
+// const setCurrentImage = function()
