@@ -139,6 +139,9 @@ const onImageNext = function(event) {
     const nextEl = parentEl.nextElementSibling
     
     // 3. sprawdzić czy ten element istnieje - jeśli nie to [.nextElementSibling] zwróci [null]
+    if(nextEl !== null){
+
+    }
     // 4. przełączyć klasę [.js-slider__thumbs-image--current] do odpowiedniego elementu
     // 5. podmienić atrybut o nazwie [src] dla [.js-slider__image]
 }
