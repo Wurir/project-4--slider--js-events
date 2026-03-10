@@ -129,7 +129,7 @@ const onImageClick = function(event, sliderRootElement, imagesSelector) {
 const onImageNext = function(event) {
     console.log(this, 'onImageNext');
     // [this] wskazuje na element [.js-slider]
-    
+    const sliderEl = document.querySelector('.js-slider__image')
     // todo:
     // 1. wyszukać aktualny wyświetlany element przy pomocy [.js-slider__thumbs-image--current]
     const currentEl = document.querySelector('.js-slider__thumbs-image--current')
@@ -144,9 +144,16 @@ const onImageNext = function(event) {
         currentEl.classList.remove('js-slider__thumbs-image--current')
         nextElImg.classList.add('js-slider__thumbs-image--current')
 
-        const sliderEl = document.querySelector('.js-slider__image')
         const newSrc = nextElImg.src
         sliderEl.src = newSrc
+    } else {
+        const firstChildEl = parentEl.parentElement.children[1]
+        const firstChildImg = firstChildEl.querySelector('img')
+        const firstChildImgSrc = firstChildImg.src
+        sliderEl.src = firstChildImgSrc
+
+        currentEl.classList.remove('js-slider__thumbs-image--current')
+        firstChildImg.classList.add('js-slider__thumbs-image--current')
     }
     // 4. przełączyć klasę [.js-slider__thumbs-image--current] do odpowiedniego elementu
     // 5. podmienić atrybut o nazwie [src] dla [.js-slider__image]
