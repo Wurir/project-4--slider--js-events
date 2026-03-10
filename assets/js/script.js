@@ -170,6 +170,11 @@ const onImagePrev = function(event) {
     const parentEl = currentEl.parentElement
     const prevEl = parentEl.previousElementSibling
     // 3. sprawdzić czy ten element istnieje i czy nie posiada klasy [.js-slider__thumbs-item--prototype]
+    if(prevEl !== null && !prevEl.classList.contains('js-slider__thumbs-item--prototype')){
+        console.log('przeszlo')
+    } else {
+        console.log("nie przeszlo")
+    }
     // 4. przełączyć klasę [.js-slider__thumbs-image--current] do odpowiedniego elementu
     // 5. podmienić atrybut [src] dla [.js-slider__image]
 }
