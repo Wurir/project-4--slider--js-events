@@ -87,9 +87,9 @@ const onImageClick = function(event, sliderRootElement, imagesSelector) {
     thumbSectionEl.classList.add("js-slider--active")
     // 2. wyszukać ściężkę (atrybut [src]) do klikniętego elementu i wstawić do [.js-slider__image]
     const imgEl = figureEl.querySelector('img')
-    const imgSrc = imgEl.getAttribute('src')
+    const imgSrc = imgEl.src
     const jsSliderEl = document.querySelector('.js-slider__image')
-    jsSliderEl.setAttribute('src', imgSrc)
+    jsSliderEl.src = imgSrc
     
     // 3. pobrać nazwę grupy zapisaną w dataset klikniętego elementu
     const figureElDataSet = figureEl.dataset.sliderGroupName
@@ -99,18 +99,10 @@ const onImageClick = function(event, sliderRootElement, imagesSelector) {
     
     // 5. utworzyć na podstawie elementu [.js-slider__thumbs-item--prototype] zawartość dla [.js-slider__thumbs]
     const sliderThumbsEl = document.querySelector('.js-slider__thumbs')
-    const sliderPrototypeEl = sliderThumbsEl.querySelector('.js-slider__thumbs-item--prototype')
+
 
     groupElements.forEach(element => {
-        const elementImg = element.querySelector('img')
-        const src = elementImg.src
-        
-        const clonedThumbEl = sliderPrototypeEl.cloneNode(true)
-        clonedThumbEl.classList.remove('js-slider__thumbs-item--prototype')
-        const clonedImgEl = clonedThumbEl.querySelector('.js-slider__thumbs-image')
-        clonedImgEl.setAttribute('src', src)
-
-        sliderThumbsEl.appendChild(clonedThumbEl)
+        createThumb(element, sliderThumbsEl)
     })
     
     // 6. zaznaczyć przy pomocy klasy [.js-slider__thumbs-image--current], który element jest aktualnie wyświetlany
@@ -198,4 +190,17 @@ const setCurrentImage = function(imageElement, currentElement){
 
     currentElement.classList.remove('js-slider__thumbs-image--current')
     imageElement.classList.add('js-slider__thumbs-image--current')
+}
+
+const createThumb = function(element, parentElement){
+        const sliderPrototypeEl = parentElement.querySelector('.js-slider__thumbs-item--prototype')
+        const elementImg = element.querySelector('img')
+        const src = elementImg.src
+        
+        const clonedThumbEl = sliderPrototypeEl.cloneNode(true)
+        clonedThumbEl.classList.remove('js-slider__thumbs-item--prototype')
+        const clonedImgEl = clonedThumbEl.querySelector('.js-slider__thumbs-image')
+        clonedImgEl.src = src
+
+        parentElement.appendChild(clonedThumbEl)
 }
