@@ -162,7 +162,7 @@ const onImageNext = function(event) {
 const onImagePrev = function(event) {
     console.log(this, 'onImagePrev');
     // [this] wskazuje na element [.js-slider]
-    
+    const sliderEl = document.querySelector('.js-slider__image')
     // todo:
     // 1. wyszukać aktualny wyświetlany element przy pomocy [.js-slider__thumbs-image--current]
     const currentEl = document.querySelector('.js-slider__thumbs-image--current')
@@ -175,6 +175,8 @@ const onImagePrev = function(event) {
         currentEl.classList.remove('js-slider__thumbs-image--current')
         prevElImg.classList.add('js-slider__thumbs-image--current')
 
+        const prevElImgSrc = prevElImg.src
+        sliderEl.src = prevElImgSrc
     } else {
         console.log("nie przeszlo")
     }
