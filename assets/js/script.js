@@ -171,7 +171,10 @@ const onImagePrev = function(event) {
     const prevEl = parentEl.previousElementSibling
     // 3. sprawdzić czy ten element istnieje i czy nie posiada klasy [.js-slider__thumbs-item--prototype]
     if(prevEl !== null && !prevEl.classList.contains('js-slider__thumbs-item--prototype')){
-        console.log('przeszlo')
+        const prevElImg = prevEl.querySelector('img')
+        currentEl.classList.remove('js-slider__thumbs-image--current')
+        prevElImg.classList.add('js-slider__thumbs-image--current')
+
     } else {
         console.log("nie przeszlo")
     }
