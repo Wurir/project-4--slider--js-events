@@ -7,6 +7,8 @@ const init = function() {
     runJSSlider();
 }
 
+let intervalId
+
 document.addEventListener('DOMContentLoaded', init);
 
 const runJSSlider = function() {
@@ -124,6 +126,7 @@ const onImageClick = function(event, sliderRootElement, imagesSelector) {
             element.classList.add('js-slider__thumbs-image--current')       
         }
     })
+    intervalId = setInterval(onImageNext, 5000)
 }
 
 const onImageNext = function(event) {
@@ -185,6 +188,7 @@ const onClose = function(event) {
     childList.forEach(element => {
         element.remove()
     })
+    clearInterval(intervalId)
 }
 
 const setCurrentImage = function(imageElement, currentElement){
