@@ -197,4 +197,10 @@ const onClose = function(event) {
     sliderEl.classList.remove('js-slider--active')
     
     // 2. należy usunać wszystkie dzieci dla [.js-slider__thumbs] pomijając [.js-slider__thumbs-item--prototype]
+    const sliderThumbsEl = document.querySelector('.js-slider__thumbs')
+    const childList = sliderThumbsEl.querySelectorAll('.js-slider__thumbs-item:not(.js-slider__thumbs-item--prototype)')
+    
+    childList.forEach(element => {
+        element.remove()
+    })
 }
